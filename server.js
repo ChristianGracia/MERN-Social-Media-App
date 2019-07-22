@@ -20,8 +20,8 @@ app.get("/", (req, res) => res.send("hello"));
 
 //Routes
 app.use("/api/users", users);
-app.use("/api/users", posts);
-app.use("/api/users", profile);
+app.use("/api/posts", posts);
+app.use("/api/profile", profile);
 
 const port = process.env.PORT || 5000;
 
