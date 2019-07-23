@@ -20,7 +20,7 @@ router.post("/register", (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        imgUrl: req.body.url
+        imgUrl: req.body.imgUrl
       });
 
       // password encryption
