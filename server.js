@@ -1,16 +1,23 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const app = express();
+const bodyParser = require("body-parser");
 
-//routes
+// routes
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
 const posts = require("./routes/api/posts");
 
-//import mongoDB uri
+// app init
+const app = express();
+
+// body-parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// import mongoDB uri
 const database = require("./config/keys").mongoURI;
 
-//connect to database
+// connect to database
 mongoose
   .connect(database)
   .then(() => console.log("connected to MongoDB"))
