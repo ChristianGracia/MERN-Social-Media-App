@@ -20,20 +20,20 @@ module.exports = function validateRegisterInput(data) {
     errors.email = "Email is required";
   }
 
-  if (Validator.isEmail(data.email)) {
+  if (!Validator.isEmail(data.email)) {
     errors.email = "Email is invalid";
   }
 
   if (Validator.isEmpty(data.password)) {
     errors.password = "Password field is required";
   }
-  if (Validator.isLength(data.password, { min: 6, max: 20 })) {
+  if (!Validator.isLength(data.password, { min: 6, max: 20 })) {
     errors.password = "Password must be between 6 and 20 characters";
   }
   if (Validator.isEmpty(data.password2)) {
     errors.password2 = "Confirm password field is required";
   }
-  if (Validator.equals(data.password, data.password2)) {
+  if (!Validator.equals(data.password, data.password2)) {
     errors.password2 = "Passwords must match";
   }
 
