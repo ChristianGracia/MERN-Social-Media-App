@@ -30,4 +30,13 @@ router.get(
       .catch(err => res.status(404).json(err));
   }
 );
+
+// create user profile
+// @access private
+
+router.post(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {}
+);
 module.exports = router;
