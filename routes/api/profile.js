@@ -31,7 +31,7 @@ router.get(
   }
 );
 
-// create user profile
+// create or edit user profile
 // @access private
 
 router.post(
@@ -50,6 +50,7 @@ router.post(
     if (req.body.status) profileFields.status = req.body.status;
     if (req.body.githubusername)
       profileFields.githubusername = req.body.githubusername;
+
     // skills - in array
     if (typeof req.body.skills !== "undefined") {
       profileFields.skills = req.body.skills.split(",");
@@ -63,6 +64,19 @@ router.post(
     if (req.body.facebook) profileFields.social.facebook = req.body.facebook;
     if (req.body.linkedin) profileFields.social.linkedin = req.body.linkedin;
     if (req.body.instagram) profileFields.social.instagram = req.body.instagram;
+
+    Profile.findOne({ user: req.user.is }).then(profile => {
+      if (profile) {
+        // update profile
+        Profile.findOneAndUpdate(
+          { user: req.user.id },
+          { $set: profileFields },
+          { new: true }
+        ).then(profile => res.json(profile));
+      } else {
+        // create profile
+      }
+    });
   }
 );
 module.exports = router;
