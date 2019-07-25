@@ -5,19 +5,8 @@ module.exports = function validateProfileInput(data) {
   let errors = {};
 
   data.handle = !isEmpty(data.email) ? data.handle : "";
-  data.password = !isEmpty(data.password) ? data.password : "";
-
-  if (!Validator.isEmail(data.email)) {
-    errors.email = "Email is invalid";
-  }
-
-  if (Validator.isEmpty(data.email)) {
-    errors.email = "Email is required";
-  }
-
-  if (Validator.isEmpty(data.password)) {
-    errors.password = "Password field is required";
-  }
+  data.status = !isEmpty(data.status) ? data.status : "";
+  data.skills = !isEmpty(data.skills) ? data.skills : "";
 
   return {
     errors,
