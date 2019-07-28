@@ -12,10 +12,6 @@ const validateLoginInput = require("../../validation/login");
 // load user model
 const User = require("../../models/User");
 
-// user route test
-// @access: private
-router.get("/test", (req, res) => res.json({ msg: "User.js working" }));
-
 // register user
 // @access: public
 router.post("/register", (req, res) => {
@@ -68,7 +64,7 @@ router.post("/login", (req, res) => {
 
   // find user with email
   User.findOne({ email }).then(user => {
-    // Validate user
+    // validate user
     if (!user) {
       errors.email = "User not found";
       return res.status(404).json(errors);

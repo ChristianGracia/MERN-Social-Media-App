@@ -9,9 +9,6 @@ const Profile = require("../../models/Profile");
 // import user profile
 const User = require("../../models/User");
 
-// @access: public
-router.get("/test", (req, res) => res.json({ msg: "Profile.js working" }));
-
 // Get current user profile
 // @access: private
 router.get(
