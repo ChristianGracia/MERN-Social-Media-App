@@ -74,7 +74,7 @@ router.post(
         // create profile
 
         // check if handle exists
-        Profile.findOne({ handle: profileFields / handle }).then(profile => {
+        Profile.findOne({ handle: profileFields.handle }).then(profile => {
           if (profile) {
             errors.handle = "Handle already in use";
             res.status(400).json(errors);
