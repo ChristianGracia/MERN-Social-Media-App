@@ -30,8 +30,7 @@ router.post("/register", (req, res) => {
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
-        imgUrl: req.body.imgUrl
+        password: req.body.password
       });
 
       // password encryption
