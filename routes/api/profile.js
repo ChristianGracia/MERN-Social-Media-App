@@ -11,7 +11,7 @@ const validateEducationInput = require("../../validation/education");
 // import profile model
 const Profile = require("../../models/Profile");
 
-// import user profile
+// import user model
 const User = require("../../models/User");
 
 // Get current user profile
@@ -274,6 +274,22 @@ router.delete(
         profile.save().then(profile => res.json(profile));
       })
       .catch(err => res.status(404).json(err));
+  }
+);
+
+// DELETE api/profile/
+// delete user and profile
+// @access private
+
+router.delete(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Profile.findOneAndRemove({ user: req.user.id }).then(() => {
+      User.findOneAndRemove({ _id: req.user.id }).then(() =>
+        res.json({ success: true })
+      );
+    });
   }
 );
 module.exports = router;
