@@ -9,7 +9,7 @@ const Post = require("../../models/post");
 // Validation
 const ValidatePostInput = require("../../validation/post");
 
-// POST api/posts
+// GET api/posts
 // get posts
 // @access public
 
@@ -18,6 +18,18 @@ router.get("/", (req, res) => {
     .sort({ date: -1 })
     .then(posts => res.json(posts))
     .catch(err => res.status(404));
+});
+
+// GET api/pposts/:id
+// get posts by id
+// @access public
+
+router.get("/:id", (req, res) => {
+  Post.findById(req.params.id)
+    .then(post => res.json(post))
+    .catch(err =>
+      res.status(404).json({ nopostfound: "No post found with that ID" })
+    );
 });
 
 // POST api/posts
