@@ -10,6 +10,17 @@ const Post = require("../../models/post");
 const ValidatePostInput = require("../../validation/post");
 
 // POST api/posts
+// get posts
+// @access public
+
+router.get("/", (req, res) => {
+  Post.find()
+    .sort({ date: -1 })
+    .then(posts => res.json(posts))
+    .catch(err => res.status(404));
+});
+
+// POST api/posts
 // create post
 // @access private
 
