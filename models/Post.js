@@ -20,7 +20,7 @@ const PostSchema = new Schema({
   likes: [
     {
       user: {
-        user: Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "users"
       }
     }
@@ -28,7 +28,7 @@ const PostSchema = new Schema({
   comments: [
     {
       user: {
-        user: Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "users"
       },
       text: {
@@ -38,11 +38,12 @@ const PostSchema = new Schema({
       name: {
         type: String
       },
-      imgUrl: {
+      avatar: {
         type: String
       },
       date: {
-        type: Date.now
+        type: Date,
+        default: Date.now
       }
     }
   ],
