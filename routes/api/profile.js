@@ -47,7 +47,7 @@ router.get("/handle/:handle", (req, res) => {
       }
       res.json(profile);
     })
-    .catch((err = res.status(404).json(err)));
+    .catch(err => res.status(404).json(err));
 });
 
 // GET api/profile/user/:user_id
@@ -56,7 +56,7 @@ router.get("/handle/:handle", (req, res) => {
 
 router.get("/user/:user_id", (req, res) => {
   const errors = {};
-  Profile.findOne({ handle: req.params.user_id })
+  Profile.findOne({ user: req.params.user_id })
     .populate("user", ["name", "imgUrl"])
     .then(profile => {
       if (!profile) {
@@ -65,7 +65,9 @@ router.get("/user/:user_id", (req, res) => {
       }
       res.json(profile);
     })
-    .catch((err = res.status(404).json(err)));
+    .catch(err =>
+      res.status(404).json({ profile: "There is no profile for this user" })
+    );
 });
 
 // create or edit user profile
