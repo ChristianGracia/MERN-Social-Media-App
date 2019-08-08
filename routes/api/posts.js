@@ -20,7 +20,7 @@ router.post(
       user: req.user.id
     });
 
-    newPost.save();
+    newPost.save().then(posts => res.json(posts));
   }
 );
 
