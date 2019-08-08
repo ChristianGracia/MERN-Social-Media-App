@@ -162,30 +162,33 @@ router.post(
 // add experience to profile
 // @access private
 
-router.post("./experience", passport.authenticate('jwt', {session: false }), (req, req) => {
+router.post(
+  "/experience",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateExperienceInput(req.body);
 
-  const { errors, isValid } = validateExperienceInput(req.body);
-
-  // check validation
-  if (!isValid) {
-    // return 400
-    return res.status(400).json(errors);
-  }
-
-  Profile.findOne({user: req.user.id }).then(profile => {
-    const newExperience = {
-      title: req.body.title,
-      company: req.body.company,
-      location: req.body.location,
-      from: req.body.from,
-      to: req.body.to,
-      current: req.body.current,
-      description: req.body.description
+    // check validation
+    if (!isValid) {
+      // return 400
+      return res.status(400).json(errors);
     }
 
-    // add to experience array
-    profile.experience.unshift(newExperience)
-    profile.save().then(profile => res.json(profile))
-  })
-})
+    Profile.findOne({ user: req.user.id }).then(profile => {
+      const newExperience = {
+        title: req.body.title,
+        company: req.body.company,
+        location: req.body.location,
+        from: req.body.from,
+        to: req.body.to,
+        current: req.body.current,
+        description: req.body.description
+      };
+
+      // add to experience array
+      profile.experience.unshift(newExperience);
+      profile.save().then(profile => res.json(profile));
+    });
+  }
+);
 module.exports = router;
