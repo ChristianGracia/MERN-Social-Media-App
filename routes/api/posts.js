@@ -4,7 +4,10 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 
 // get Post model
-const Post = require("../../models/post");
+const Post = require("../../models/Post");
+
+// get Profile model
+const Profile = require ("../../models/Profile")
 
 // Validation
 const ValidatePostInput = require("../../validation/post");
@@ -17,7 +20,7 @@ router.get("/", (req, res) => {
   Post.find()
     .sort({ date: -1 })
     .then(posts => res.json(posts))
-    .catch(err => res.status(404));
+    .catch(err => res.status(404).json({ nopostsfound: "No posts found" }));
 });
 
 // GET api/pposts/:id
@@ -55,5 +58,25 @@ router.post(
     newPost.save().then(posts => res.json(posts));
   }
 );
+
+// DELETE api/posts/:id
+// delete a posts
+// @access private
+
+router.delete("/:id", passport.authenticate("jwt", {session: false}), (req, res) => {
+  Profile.findOne({ user: req:user:id })
+  .then(profile => {
+    Post.findById(req.params.id)
+    .then(post => {
+      if(post.user.toString() !== req.user.id){
+        return res.status(401).json({notauthorized: "User not authorized"})
+      }
+      // delete
+      post.remove().then(() => {
+        res.json({ success: true})
+      })
+    }).catch(err => res.status(404).json({ postnotfound: "No post found"}))
+  })
+}
 
 module.exports = router;
