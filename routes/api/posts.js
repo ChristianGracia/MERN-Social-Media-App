@@ -150,4 +150,38 @@ router.post(
   }
 );
 
+// POST api/posts/comment/:id
+// add comment to post
+// @access private
+
+router.post(
+  "/comment/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    //check validation
+    const { errors, isValid } = ValidatePostInput(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    Post.findById(req.params.id)
+      .then(post => {
+        const newComment = {
+          text: req.body.text,
+          name: req.body.name,
+          imgUrl: req.body.imgUrl,
+          user: req.user.id
+        };
+
+        // add to comments array
+        post.comments.unshift(newComment);
+
+        // save comment
+        post.save().then(post => res.json(post));
+      })
+      .catch(err => res.status(404).json({ postnotfound: "No post found" }));
+  }
+);
+
 module.exports = router;
