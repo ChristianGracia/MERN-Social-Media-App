@@ -6,9 +6,9 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
-          <a className="navbar-brand" href="landing.html">
+          <Link className="navbar-brand" to="/">
             CodeBook
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -21,10 +21,10 @@ class Navbar extends Component {
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <a className="nav-link" href="profiles.html">
+                <Link className="nav-link" to="/profiles">
                   {" "}
                   Developers
-                </a>
+                </Link>
               </li>
             </ul>
 
