@@ -7,7 +7,7 @@ const passport = require("passport");
 const Post = require("../../models/Post");
 
 // get Profile model
-const Profile = require ("../../models/Profile")
+const Profile = require("../../models/Profile");
 
 // Validation
 const ValidatePostInput = require("../../validation/post");
@@ -63,20 +63,26 @@ router.post(
 // delete a posts
 // @access private
 
-router.delete("/:id", passport.authenticate("jwt", {session: false}), (req, res) => {
-  Profile.findOne({ user: req:user:id })
-  .then(profile => {
-    Post.findById(req.params.id)
-    .then(post => {
-      if(post.user.toString() !== req.user.id){
-        return res.status(401).json({notauthorized: "User not authorized"})
-      }
-      // delete
-      post.remove().then(() => {
-        res.json({ success: true})
-      })
-    }).catch(err => res.status(404).json({ postnotfound: "No post found"}))
-  })
-}
+router.delete(
+  "/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Profile.findOne({ user: req.user.id }).then(profile => {
+      Post.findById(req.params.id)
+        .then(post => {
+          if (post.user.toString() !== req.user.id) {
+            return res
+              .status(401)
+              .json({ notauthorized: "User not authorized" });
+          }
+          // delete
+          post.remove().then(() => {
+            res.json({ success: true });
+          });
+        })
+        .catch(err => res.status(404).json({ postnotfound: "No post found" }));
+    });
+  }
+);
 
 module.exports = router;
