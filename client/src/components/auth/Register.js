@@ -1,6 +1,10 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+
 import PropTypes from "prop-types";
+
 import classnames from "classnames";
+
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 
@@ -17,6 +21,13 @@ class Register extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -29,12 +40,11 @@ class Register extends Component {
       password2: this.state.password2
     };
 
-    this.props.registerUser(newUser);
+    this.props.registerUser(newUser, this.props.history);
   }
   render() {
     const { errors } = this.state;
 
-    const { user } = this.props.auth;
     return (
       <div className="register">
         <div className="container">
@@ -124,4 +134,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { registerUser }
-)(Register);
+)(withRouter(Register));
