@@ -80,7 +80,7 @@ class CreateProfile extends Component {
             errors={errors.twitter}
           />
           <InputGroup
-            placeholder="Linkedin Profile URL"
+            placeholder="LinkedIn Profile URL"
             name="linkedin"
             icon="fab fa-linkedin"
             value={this.state.linkedin}
@@ -96,7 +96,7 @@ class CreateProfile extends Component {
             errors={errors.facebook}
           />
           <InputGroup
-            placeholder="Youtube Channel URL"
+            placeholder="YouTube Channel URL"
             name="youtube"
             icon="fab fa-youtube"
             value={this.state.youtube}
