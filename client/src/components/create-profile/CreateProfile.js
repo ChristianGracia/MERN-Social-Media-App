@@ -82,6 +82,68 @@ class CreateProfile extends Component {
                   error={errors.status}
                   info="Where are you in your career?"
                 />
+                <TextFieldGroup
+                  placeholder="* Company"
+                  name="company"
+                  value={this.state.company}
+                  onChange={this.onChange}
+                  error={errors.company}
+                  info="Where do you work?"
+                />
+                <TextFieldGroup
+                  placeholder="* Website"
+                  name="website"
+                  value={this.state.website}
+                  onChange={this.onChange}
+                  error={errors.website}
+                  info="Your own or company website"
+                />
+                <TextFieldGroup
+                  placeholder="* Location"
+                  name="location"
+                  value={this.state.location}
+                  onChange={this.onChange}
+                  error={errors.location}
+                  info="Where do you live? (city, state)"
+                />
+                <TextFieldGroup
+                  placeholder="* Skills"
+                  name="skills"
+                  value={this.state.skills}
+                  onChange={this.onChange}
+                  error={errors.skills}
+                  info="Enter in skills seperated by commas (ex. C, Python, React, etc)"
+                />
+                <TextFieldGroup
+                  placeholder="* Github Username"
+                  name="githubusername"
+                  value={this.state.githubusername}
+                  onChange={this.onChange}
+                  error={errors.githubusername}
+                  info="To show off your work!"
+                />
+                <TextAreaFieldGroup
+                  placeholder="Short Bio"
+                  name="bio"
+                  value={this.state.bio}
+                  onChange={this.onChange}
+                  error={errors.bio}
+                  info="Tell us a little about yourself!"
+                />
+
+                <div className="mb-3">
+                  <button
+                    className="btn btn-light"
+                    onClick={() =>
+                      this.setState(prevState => ({
+                        displaySocialInputs: !prevState.displaySocialInputs
+                      }))
+                    }
+                  >
+                    Add Social Network Links
+                  </button>
+                  <span className="text-muted">Optional</span>
+                </div>
               </form>
             </div>
           </div>
