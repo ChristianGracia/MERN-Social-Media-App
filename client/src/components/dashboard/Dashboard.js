@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getCurrentProfile, deleteAccount } from "../../actions/profileActions";
 import ProfileActions from "./ProfileActions";
-import Experience from "./Experience.js";
-import Education from "./Education.js";
+import Experience from "./Experience";
+import Education from "./Education";
 
 import Spinner from "../common/Spinner";
 
