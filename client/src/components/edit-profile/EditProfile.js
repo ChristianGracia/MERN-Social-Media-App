@@ -77,6 +77,23 @@ class EditProfile extends Component {
       profile.instagram = !isEmpty(profile.social.instagram)
         ? profile.social.instagram
         : "";
+
+      // set component fields state
+      this.setState({
+        handle: profile.handle,
+        company: profile.company,
+        website: profile.website,
+        location: profile.location,
+        status: profile.handle,
+        skills: skillsCSV,
+        githubusername: profile.githubusername,
+        bio: profile.bio,
+        twitter: profile.twitter,
+        facebook: profile.facebook,
+        linkedin: profile.linkedin,
+        instagram: profile.instagram,
+        youtube: profile.youtube
+      });
     }
   }
   onSubmit(e) {
