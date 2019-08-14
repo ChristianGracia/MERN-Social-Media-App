@@ -32,4 +32,7 @@ Profile.propTypes = {
 const mapStateToProps = state => {
   profile: state.profile;
 };
-export default connect(mapStateToProps)(Profile);
+export default connect(
+  mapStateToProps,
+  { getProfileByHandle }
+)(Profile);

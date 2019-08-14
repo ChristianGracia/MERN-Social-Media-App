@@ -157,21 +157,20 @@ export const getProfiles = () => dispatch => {
 };
 
 // get profile by handle
-export const getProfiles = () => dispatch => {
+export const getProfileByHandle = handle => dispatch => {
   dispatch(setProfileLoading());
   axios
-    .get("/api/profile/all")
+    .get(`/api/profile/handle/${handle}`)
     .then(res =>
       dispatch({
-        type: GET_PROFILES,
+        type: GET_PROFILE,
         payload: res.data
       })
     )
     .catch(err =>
       dispatch({
-        type: GET_PROFILES,
+        type: GET_PROFILE,
         payload: null
       })
     );
 };
-
