@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profileActions";
+import ProfileActions from "./ProfileActions";
 
 import Spinner from "../common/Spinner";
 
@@ -27,6 +28,7 @@ class Dashboard extends Component {
               Welcome{" "}
               <Link to={`/profile/${profile.handle}`}> {user.name}</Link>{" "}
             </p>
+            <ProfileActions />
           </div>
         );
       } else {
