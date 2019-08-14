@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import Moment from "react-moment";
 
 class Experience extends Component {
   constructor(props) {
@@ -14,7 +15,12 @@ class Experience extends Component {
         <td>{exp.company}</td>
         <td>{exp.title}</td>
         <td>
-          {exp.from} - {exp.to}
+          <Moment format="YYYY/MM/DD">{exp.from}</Moment>-
+          {exp.to === null ? (
+            " Now"
+          ) : (
+            <Moment format="YYYY/MM/DD">{exp.to}</Moment>
+          )}
         </td>
         <td>
           <button className="btn btn-danger">Delete</button>
