@@ -14,8 +14,8 @@ class AddEducation extends Component {
     super(props);
     this.state = {
       company: "",
-      title: "",
-      location: "",
+      degree: "",
+      fieldofstudy: "",
       from: "",
       to: "",
       current: false,
@@ -36,9 +36,9 @@ class AddEducation extends Component {
   onSubmit(e) {
     e.preventDefault();
     const eduData = {
-      company: this.state.company,
-      title: this.state.title,
-      location: this.state.location,
+      school: this.state.school,
+      degree: this.state.degree,
+      fieldofstudy: this.state.fieldofstudy,
       from: this.state.from,
       to: this.state.to,
       current: this.state.current,
@@ -62,7 +62,7 @@ class AddEducation extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <div className="add-Education">
+      <div className="add-dducation">
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
@@ -70,7 +70,9 @@ class AddEducation extends Component {
                 go back
               </Link>
               <h1 className="display-4 text-center">Add Education</h1>
-              <p className="lead text-center">Schools</p>
+              <p className="lead text-center">
+                Add any school, courses, certificates, etc you have completed
+              </p>
               <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
@@ -88,11 +90,11 @@ class AddEducation extends Component {
                   error={errors.degree}
                 />
                 <TextFieldGroup
-                  placeholder="Location"
-                  name="location"
-                  value={this.state.location}
+                  placeholder="Field of study"
+                  name="fieldofstudy"
+                  value={this.state.fieldofstudy}
                   onChange={this.onChange}
-                  error={errors.location}
+                  error={errors.fieldofstudy}
                 />
                 <TextFieldGroup
                   type="date"
@@ -129,7 +131,7 @@ class AddEducation extends Component {
                   value={this.state.description}
                   onChange={this.onChange}
                   error={errors.description}
-                  info="Tell us about"
+                  info="Tell us about it!"
                 />
                 <input
                   type="submit"
