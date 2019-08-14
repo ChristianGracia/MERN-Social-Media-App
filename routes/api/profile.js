@@ -107,6 +107,7 @@ router.post(
 
     // get profile fields
     const profileFields = {};
+    let http = "http://";
     profileFields.user = req.user.id;
     if (req.body.handle) profileFields.handle = req.body.handle;
     if (req.body.company) profileFields.company = req.body.company;

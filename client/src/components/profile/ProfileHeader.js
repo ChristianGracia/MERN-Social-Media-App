@@ -2,8 +2,13 @@ import React, { Component } from "react";
 import isEmpty from "../../validation/is-empty";
 
 class ProfileHeader extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     const { profile } = this.props;
+
     return (
       <div>
         <div className="row">
@@ -31,12 +36,26 @@ class ProfileHeader extends Component {
                   {isEmpty(profile.location) ? null : <p>{profile.location}</p>}
                 </p>
                 <p>
-                  <a className="text-white p-2" href="#">
-                    <i className="fas fa-globe fa-2x" />
-                  </a>
-                  <a className="text-white p-2" href="#">
-                    <i className="fab fa-twitter fa-2x" />
-                  </a>
+                  {isEmpty(profile.website) ? null : (
+                    <a
+                      className="text-white p-2"
+                      href={`//${profile.website}`}
+                      target="_blank"
+                    >
+                      <i className="fas fa-globe fa-2x" />
+                    </a>
+                  )}
+
+                  {isEmpty(profile.social && profile.social.twitter) ? null : (
+                    <a
+                      className="text-white p-2"
+                      href={`//${profile.social.twitter}`}
+                      target="_blank"
+                    >
+                      <i className="fab fa-twitter fa-2x" />
+                    </a>
+                  )}
+
                   <a className="text-white p-2" href="#">
                     <i className="fab fa-facebook fa-2x" />
                   </a>
