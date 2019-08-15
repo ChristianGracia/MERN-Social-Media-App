@@ -52,13 +52,7 @@ class ProfileCreds extends Component {
         <p>
           <strong>Field of study:</strong> {edu.fieldofstudy}
         </p>
-        <p>
-          {edu.location === "" ? null : (
-            <span>
-              <strong>Location: </strong> {edu.location}
-            </span>
-          )}
-        </p>
+
         <p>
           {edu.description === "" ? null : (
             <span>
@@ -85,7 +79,7 @@ class ProfileCreds extends Component {
           {eduItems.length > 0 ? (
             <ul className="list-group">{eduItems}</ul>
           ) : (
-            <p className="text-center">No Education Listed</p>
+            <p className="text-center">No Education added</p>
           )}
         </div>
       </div>
