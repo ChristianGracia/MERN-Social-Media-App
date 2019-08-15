@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 
 // add post
 export const addPost = postData => dispatch => {
+  dispatch(setPostLoading());
   axios
     .post("api/posts", postData)
     .then(res =>
@@ -21,7 +22,7 @@ export const addPost = postData => dispatch => {
 };
 
 // get post
-export const getPost = postData => dispatch => {
+export const getPosts = () => dispatch => {
   dispatch(setPostLoading());
   axios
     .get("api/posts/")
