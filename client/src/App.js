@@ -18,6 +18,7 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Profile from "./components/profile/Profile";
 import Profiles from "./components/profiles/Profiles";
+import Post from "./components/post/Post";
 import Posts from "./components/posts/Posts";
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateProfile from "./components/create-profile/CreateProfile";
@@ -97,6 +98,9 @@ class App extends Component {
                   path="/add-education"
                   component={AddEducation}
                 />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/post/:id" component={Post} />
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/feed" component={Posts} />
