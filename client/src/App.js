@@ -16,13 +16,14 @@ import Footer from "./components/layout/Footer";
 import Landing from "./components/layout/Landing";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
-import Dashboard from "./components/dashboard/Dashboard";
-import CreateProfile from "./components/create-profile/CreateProfile";
-import EditProfile from "./components/edit-profile/EditProfile";
-import AddExperience from "./components/addCredentials/AddExperience";
-import AddEducation from "./components/addCredentials/AddEducation";
 import Profile from "./components/profile/Profile";
 import Profiles from "./components/profiles/Profiles";
+import Dashboard from "./components/dashboard/Dashboard";
+import CreateProfile from "./components/create-profile/CreateProfile";
+import AddExperience from "./components/addCredentials/AddExperience";
+import AddEducation from "./components/addCredentials/AddEducation";
+import EditProfile from "./components/edit-profile/EditProfile";
+import NotFound from "./components/not-found/NotFound";
 import PrivateRoute from "./components/common/PrivateRoute";
 
 import "./App.css";
@@ -96,6 +97,7 @@ class App extends Component {
                   component={AddEducation}
                 />
               </Switch>
+              <Route exact path="/not-found" component={NotFound} />
             </div>
             <Footer />
           </div>
