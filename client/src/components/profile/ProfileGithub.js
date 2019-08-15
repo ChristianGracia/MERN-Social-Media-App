@@ -18,13 +18,11 @@ class ProfileGithub extends Component {
     const { username } = this.props;
     const { count, sort, clientId, clientSecret } = this.state;
     const url = `https://api.github.com/users/${username}/repos?per_page=${count}&sort=${sort}&client_id=${clientId}&client_secret=${clientSecret}`;
-    alert(url);
     fetch(url)
       .then(res => res.json())
       .then(data => {
         if (this.refs.myRef) {
           this.setState({ repos: data });
-          console.log(this.state.repos);
         }
       })
       .catch(err => console.log(err));
@@ -37,7 +35,11 @@ class ProfileGithub extends Component {
         <div className="row">
           <div className="col-md-6">
             <h4>
-              <Link to={repo.html_url} className="text-info" target="_blank">
+              <Link
+                to={`//${repo.html_url.substr(7)}`}
+                className="text-info"
+                target="_blank"
+              >
                 {repo.name}
               </Link>
             </h4>
