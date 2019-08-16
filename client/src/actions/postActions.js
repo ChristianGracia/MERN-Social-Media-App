@@ -112,7 +112,7 @@ export const removeLike = id => dispatch => {
 // add comment
 export const addComment = (postId, commentData) => dispatch => {
   axios
-    .post(`api/posts/comments/${postId}`, commentData)
+    .post(`/api/posts/comment/${postId}`, commentData)
     .then(res =>
       dispatch({
         type: GET_POST,

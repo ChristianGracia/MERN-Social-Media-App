@@ -36,6 +36,7 @@ class CommentForm extends Component {
       imgUrl:
         "https://icon-library.net/images/default-profile-icon/default-profile-icon-24.jpg"
     };
+    console.log(newComment);
 
     this.props.addComment(postId, newComment);
     this.setState({
@@ -79,15 +80,17 @@ class CommentForm extends Component {
 }
 
 CommentForm.propTypes = {
-  auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired,
   addComment: PropTypes.func.isRequired,
-  postId: PropTypes.string.isRequired
+  auth: PropTypes.object.isRequired,
+  postId: PropTypes.string.isRequired,
+  errors: PropTypes.object.isRequired
 };
+
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
 });
+
 export default connect(
   mapStateToProps,
   { addComment }
