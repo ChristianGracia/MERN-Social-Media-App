@@ -32,7 +32,7 @@ class PostItem extends Component {
       <div className="card card-body mb-3">
         <div className="row">
           <div className="col-md-2">
-            <a href="profile.html">
+            <a href="profile/current">
               <img
                 className="rounded-circle d-none d-md-block"
                 src="https://icon-library.net/images/default-profile-icon/default-profile-icon-24.jpg"
