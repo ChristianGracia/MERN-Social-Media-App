@@ -5,7 +5,7 @@ export default () => {
     <div>
       <h1 className="display-4">404 ERROR</h1>
       <p>PAGE NOT FOUND</p>
-      <p>Try changing your params :p</p>
+      <p>Try changing your params</p>
     </div>
   );
 };
