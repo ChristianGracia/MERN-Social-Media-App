@@ -16,6 +16,7 @@ class CreateProfile extends Component {
     this.state = {
       displaySocialInputs: false,
       handle: "",
+      imgUrl: "",
       company: "",
       website: "",
       location: "",
@@ -47,6 +48,7 @@ class CreateProfile extends Component {
 
     const profileData = {
       handle: this.state.handle,
+      imgUrl: this.state.imgUrl,
       company: this.state.company,
       website: this.state.website,
       location: this.state.location,
@@ -153,7 +155,7 @@ class CreateProfile extends Component {
                 />
                 <TextFieldGroup
                   placeholder="Profile picture URL"
-                  name="bio"
+                  name="imgUrl"
                   value={this.state.imgUrl}
                   onChange={this.onChange}
                   error={errors.imgUrl}
