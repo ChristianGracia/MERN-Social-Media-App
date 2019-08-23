@@ -65,7 +65,7 @@ class Navbar extends Component {
     return (
       <nav
         className="navbar navbar-expand-sm mb-4"
-        style={{ backgroundColor: "#2F2FA2" }}
+        style={{ backgroundColor: "#17A2B8" }}
       >
         <div className="container">
           <Link className="navbar-brand" to="/" style={{ color: "white" }}>
