@@ -6,6 +6,7 @@ class ProfileHeader extends Component {
     super(props);
     this.state = {};
   }
+
   render() {
     const { profile } = this.props;
 
@@ -16,11 +17,19 @@ class ProfileHeader extends Component {
             <div className="card card-body bg-info text-white mb-3">
               <div className="row">
                 <div className="col-4 col-md-3 m-auto">
-                  <img
-                    className="rounded-circle"
-                    src="https://icon-library.net/images/default-profile-icon/default-profile-icon-24.jpg"
-                    alt=""
-                  />
+                  {isEmpty(profile.imgUrl) ? (
+                    <img
+                      className="rounded-circle"
+                      src="https://icon-library.net/images/default-profile-icon/default-profile-icon-24.jpg"
+                      alt=""
+                    />
+                  ) : (
+                    <img
+                      className="rounded-circle"
+                      src={profile.imgUrl}
+                      alt=""
+                    />
+                  )}
                 </div>
               </div>
               <div className="text-center">
