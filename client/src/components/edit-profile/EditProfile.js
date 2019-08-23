@@ -19,6 +19,7 @@ class EditProfile extends Component {
     this.state = {
       displaySocialInputs: false,
       handle: "",
+      imgUrl: "",
       company: "",
       website: "",
       location: "",
@@ -81,6 +82,7 @@ class EditProfile extends Component {
       // set component fields state
       this.setState({
         handle: profile.handle,
+        imgUrl: profile.imgUrl,
         company: profile.company,
         website: profile.website,
         location: profile.location,
@@ -101,6 +103,7 @@ class EditProfile extends Component {
 
     const profileData = {
       handle: this.state.handle,
+      imgUrl: this.state.imgUrl,
       company: this.state.company,
       website: this.state.website,
       location: this.state.location,
@@ -201,6 +204,14 @@ class EditProfile extends Component {
                   onChange={this.onChange}
                   error={errors.handle}
                   info="A unique handle for your profile URL"
+                />
+                <TextFieldGroup
+                  placeholder="Profile picture URL"
+                  name="imgUrl"
+                  value={this.state.imgUrl}
+                  onChange={this.onChange}
+                  error={errors.imgUrl}
+                  info="Choose your profile picture!"
                 />
                 <SelectListGroup
                   placeholder="Status"

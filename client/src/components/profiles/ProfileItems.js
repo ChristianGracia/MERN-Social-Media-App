@@ -10,11 +10,15 @@ class ProfileItems extends Component {
       <div className="card card-body bg-light mb-3">
         <div className="row">
           <div className="col-2">
-            <img
-              src="https://icon-library.net/images/default-profile-icon/default-profile-icon-24.jpg"
-              alt=""
-              className="rounded-circle"
-            />
+            {isEmpty(profile.imgUrl) ? (
+              <img
+                className="rounded-circle"
+                src="https://icon-library.net/images/default-profile-icon/default-profile-icon-24.jpg"
+                alt=""
+              />
+            ) : (
+              <img className="rounded-circle" src={profile.imgUrl} alt="" />
+            )}
           </div>
           <div className="col-lg-6 col-md-4 col-8">
             <h3>{profile.user.name}</h3>

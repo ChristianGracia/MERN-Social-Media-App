@@ -159,7 +159,7 @@ class CreateProfile extends Component {
                   value={this.state.imgUrl}
                   onChange={this.onChange}
                   error={errors.imgUrl}
-                  info="put in a url of an image to set your profile picture"
+                  info="Choose your profile picture!"
                 />
                 <SelectListGroup
                   placeholder="Status"
