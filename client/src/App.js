@@ -47,7 +47,7 @@ if (localStorage.jwtToken) {
     // logout user
     store.dispatch(logoutUser());
 
-    // clear current profile (todo)
+    // clear current profile
     store.dispatch(clearCurrentProfile());
 
     // redirect to login

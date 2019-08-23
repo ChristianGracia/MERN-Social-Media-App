@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import classnames from "classnames";
 import { Link } from "react-router-dom";
 import { deletePost, addLike, removeLike } from "../../actions/postActions";
+import profileReducer from "../../reducers/profileReducer";
 
 class PostItem extends Component {
   onDeleteClick(id) {
@@ -26,7 +27,6 @@ class PostItem extends Component {
       return false;
     }
   }
-  handleimg() {}
 
   render() {
     const { post, auth, showActions } = this.props;
@@ -34,9 +34,16 @@ class PostItem extends Component {
       <div className="card card-body mb-3">
         <div className="row">
           <div className="col-md-2">
-            <img className="rounded-circle" src={this.handleImg()} alt="" />
-            <br />
-            <p className="text-center">{post.name}</p>
+            <p
+              className="text-center"
+              style={{
+                fontWeight: "bold",
+                color: "white",
+                backgroundColor: "#2F2FA2"
+              }}
+            >
+              {post.name}
+            </p>
           </div>
           <div className="col-md-10">
             <p className="lead">{post.text}</p>
@@ -62,6 +69,7 @@ class PostItem extends Component {
                 >
                   <i className="fas fa-thumbs-down" />
                 </button>
+                <div style={{ paddingLeft: 15 }} />
                 <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
                   Comments
                 </Link>

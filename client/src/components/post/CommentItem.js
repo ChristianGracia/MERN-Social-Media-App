@@ -14,15 +14,16 @@ class CommentItem extends Component {
       <div className="card card-body mb-3">
         <div className="row">
           <div className="col-md-2">
-            <a href="profile.html">
-              <img
-                className="rounded-circle d-none d-md-block"
-                src="https://icon-library.net/images/default-profile-icon/default-profile-icon-24.jpg"
-                alt=""
-              />
-            </a>
-            <br />
-            <p className="text-center">{comment.name}</p>
+            <p
+              className="text-center"
+              style={{
+                fontWeight: "bold",
+                color: "white",
+                backgroundColor: "#2F2FA2"
+              }}
+            >
+              {comment.name}
+            </p>
           </div>
           <div className="col-md-10">
             <p className="lead">{comment.text}</p>

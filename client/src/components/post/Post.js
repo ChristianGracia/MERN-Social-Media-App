@@ -7,11 +7,16 @@ import PostItem from "../posts/PostItem";
 import CommentForm from "./CommentForm";
 import { Link } from "react-router-dom";
 import CommentFeed from "./CommentFeed";
+import { PROFILE_LOADING } from "../../actions/types";
 
 class Post extends Component {
+  state = {
+    profile: null
+  };
   componentDidMount() {
     this.props.getPost(this.props.match.params.id);
   }
+
   render() {
     const { post, loading } = this.props.post;
     let postContent;

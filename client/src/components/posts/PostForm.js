@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import { addPost } from "../../actions/postActions";
-import getCurrentProfile from "../../actions/profileActions";
-import profileReducer from "../../reducers/profileReducer";
 
 class PostForm extends Component {
   constructor(props) {
@@ -66,6 +64,7 @@ class PostForm extends Component {
                   error={errors.text}
                 />
               </div>
+
               <button type="submit" className="btn btn-dark">
                 Post
               </button>
