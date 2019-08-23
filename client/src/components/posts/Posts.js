@@ -9,6 +9,8 @@ import Spinner from "../common/Spinner";
 
 import { getPosts } from "../../actions/postActions";
 
+import POST_LOADING from "../../actions/types";
+
 class Posts extends Component {
   componentDidMount() {
     this.props.getPosts();

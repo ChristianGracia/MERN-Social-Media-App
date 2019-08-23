@@ -48,10 +48,12 @@ router.post(
     if (!isValid) {
       return res.status(400).json(errors);
     }
+    console.log(req.body.imgUrl);
     const newPost = new Post({
       text: req.body.text,
       name: req.body.name,
-      imgUrl: req.body.name,
+      imgUrl: req.body.imgUrl,
+
       user: req.user.id
     });
 

@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
 import { addPost } from "../../actions/postActions";
+import getCurrentProfile from "../../actions/profileActions";
+import profileReducer from "../../reducers/profileReducer";
 
 class PostForm extends Component {
   constructor(props) {
@@ -31,9 +33,7 @@ class PostForm extends Component {
 
     const newPost = {
       text: this.state.text,
-      name: user.name,
-      imgUrl:
-        "https://icon-library.net/images/default-profile-icon/default-profile-icon-24.jpg"
+      name: user.name
     };
 
     this.props.addPost(newPost);
