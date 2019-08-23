@@ -18,5 +18,6 @@ Users are able to:
 - make and delete their own posts
 - like and unlike posts
 - comment on remove their own comments on posts
+- set their own profile picture
 
 cool project
