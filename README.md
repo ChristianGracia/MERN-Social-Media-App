@@ -2,7 +2,7 @@
 
 This repo contains a fully functional MERN STACK social networking site
 
-using MongoDB, express, React, NodeJS, Redux, and more.
+using MongoDB, Express, React, NodeJS, Redux, and more.
 
 ## FEATURES
 
